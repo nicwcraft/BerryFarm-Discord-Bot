@@ -9,9 +9,9 @@ class Farm(commands.Cog):
         self.bot = bot
         self.farm_file = 'fazenda.json'
         self.plant_file = 'plantados.json'
-        self.max_plant_per_period = 10  # Máximo de morangos que podem ser plantados por período
-        self.plant_cooldown = 10 * 60  # Cooldown de 30 minutos em segundos
-        self.user_plant_data = {}  # Armazena os dados de plantio dos usuários
+        self.max_plant_per_period = 10  
+        self.plant_cooldown = 10 * 60  
+        self.user_plant_data = {}  
 
     def load_farm_data(self):
         if os.path.isfile(self.farm_file):
