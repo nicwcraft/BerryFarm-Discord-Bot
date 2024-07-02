@@ -44,7 +44,7 @@ class Farm(commands.Cog):
             await ctx.send("Por favor, especifique uma quantidade válida para plantar.")
             return
 
-        # Verificar se o usuário está no cooldown
+       
         if user_id in self.user_plant_data:
             last_planted, planted_count = self.user_plant_data[user_id]
             if (current_time - last_planted).total_seconds() < self.plant_cooldown and planted_count >= self.max_plant_per_period:
@@ -53,11 +53,11 @@ class Farm(commands.Cog):
                 await ctx.send(f"Você atingiu o limite de plantio. Tente novamente em {retry_after_minutes:.2f} minutos.")
                 return
 
-        # Atualizar o contador e o tempo de plantio
+        
         if user_id in self.user_plant_data:
             last_planted, planted_count = self.user_plant_data[user_id]
             if (current_time - last_planted).total_seconds() >= self.plant_cooldown:
-                # Resetar o contador após o cooldown
+               
                 self.user_plant_data[user_id] = (current_time, quantidade)
             else:
                 self.user_plant_data[user_id] = (last_planted, planted_count + quantidade)
@@ -95,13 +95,13 @@ class Farm(commands.Cog):
             await ctx.send("Você não plantou morangos suficientes para colher essa quantidade.")
             return
 
-        # Atualizar dados de plantio
+        
         plant_data[user_id] -= quantidade
         if plant_data[user_id] == 0:
             del plant_data[user_id]
         self.save_plant_data(plant_data)
 
-        # Atualizar dados da fazenda
+        
         if user_id in farm_data:
             farm_data[user_id] += quantidade
         else:
