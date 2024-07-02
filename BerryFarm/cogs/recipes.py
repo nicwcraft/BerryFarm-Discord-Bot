@@ -3,7 +3,6 @@ from discord.ext import commands
 import json
 import os
 
-# Dicionário de receitas numeradas
 recipes = {
     1: {
         "name": "bolo_de_morango",
@@ -66,7 +65,6 @@ class Recipes(commands.Cog):
             except FileNotFoundError:
                 fazenda = {}
 
-            # Corrigir leitura dos morangos do usuário
             morangos_usuario = fazenda.get(user_id, 0)
 
             if morangos_usuario >= morangos_necessarios:
