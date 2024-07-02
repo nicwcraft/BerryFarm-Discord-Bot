@@ -11,13 +11,13 @@ class Ranking(commands.Cog):
         with open('banco.json', 'r') as f:
             banco = json.load(f)
 
-        # Ordenar os membros pelo saldo em ordem decrescente
+        
         sorted_banco = sorted(banco.items(), key=lambda x: x[1], reverse=True)
 
-        # Criar o embed
+        
         embed = discord.Embed(title="Ranking", description="membros mais ricos do servidor:", color=discord.Color.gold())
 
-        for i, (user_id, saldo) in enumerate(sorted_banco[:10], start=1):  # Mostrar apenas os top 10
+        for i, (user_id, saldo) in enumerate(sorted_banco[:10], start=1):  
             user = self.bot.get_user(int(user_id))
             if user:
                 embed.add_field(name=f"{i}. {user.name}", value=f"💰 {saldo} moedas", inline=False)
