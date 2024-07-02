@@ -8,7 +8,7 @@ class Shop(commands.Cog):
         self.bot = bot
         self.farm_file = 'fazenda.json'
         self.bank_file = 'banco.json'
-        self.morango_preco = 5  # Preço por morango
+        self.morango_preco = 5  
 
     def load_farm_data(self):
         if os.path.isfile(self.farm_file):
