@@ -11,7 +11,7 @@ intents.members = True
 
 bot = commands.Bot(command_prefix='f!', intents=intents)
 
-TOKEN = 'MTI0NzEwNzQ4MjY4NjU5MTAxNw.GCB3F3.xzRVeQfO2RsY4tRQ5BGFhn-bmqY9BziKeHYOl8'
+TOKEN = ''
 
 
 async def load_cogs():
